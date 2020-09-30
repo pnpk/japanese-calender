@@ -1,0 +1,15 @@
+{
+    "name": "pnpk/japanese-calender",
+    "description": "Japanese Calender",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "pnpk"
+        }
+    ],
+    "require": {},
+    "require-dev": {
+        "phpunit/phpunit": "^9.3"
+    }
+}
