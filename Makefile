@@ -1,2 +1,2 @@
 test:
-	./vender/bin/phpunit
+	./vendor/bin/phpunit ./test
