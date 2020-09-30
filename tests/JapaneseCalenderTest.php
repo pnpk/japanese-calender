@@ -1,19 +1,17 @@
 <?php
 namespace tests;
 
-use JapaneseCalender\Era;
-use function PHPUnit\Framework\assertFalse;
+use pnpk\JapaneseCalender\Era;
 
-class JapaneseCalenderTest extends \PHPUnit\Framework\TestCase
+class EraTest extends \PHPUnit\Framework\TestCase
 {
     /**
-     * Undocumented function
      *
      * @test
      */
     public function hoge()
     {
         new Era();
-        assertFalse(false);
+        assert(false);
     }
 }

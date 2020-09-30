@@ -1,5 +1,5 @@
 <?php
-namespace JapaneseCalender;
+namespace pnpk\JapaneseCalender;
 
 use DateTime;
 
