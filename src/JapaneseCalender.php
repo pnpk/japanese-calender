@@ -6,7 +6,7 @@ use DateTime;
 
 class JapaneseCalender
 {
-    const WAREKI = [
+    const ERAS = [
         [
             'name' => '令和',
             'start_at' => '2019-05-01',
@@ -34,12 +34,18 @@ class JapaneseCalender
         ]
     ];
 
-    public function getByDate(DateTime $date)
+    public function get(DateTime $dateTime)
     {
-        CarbonImmutable::parse($date);
-
-        foreach (self::WAREKI as $era) {
-            var_dump(CarbonImmutable::parse($date));
+        $date = $dateTime->format('Y-m-d');
+        // var_dump($date);
+        foreach (self::ERAS as $era) {
+            $diff = date_diff(date_create($era['start_at']), date_create($date));
+            if ($diff->invert === 0) {
+                var_dump(date_create($era['start_at']));
+                var_dump(date_create($date));
+                var_dump($diff);
+                return $era;
+            }
         }
         // return false;
     }

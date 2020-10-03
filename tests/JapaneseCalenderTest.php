@@ -13,9 +13,14 @@ class JapaneseCalenderTest extends TestCase
      */
     public function hoge()
     {
+        $dateTimeZoneJapan = new \DateTimeZone("Asia/Tokyo");
+
         $japaneseCalender = new JapaneseCalender();
-        $date = new \DateTime();
-        
-        assertFalse($japaneseCalender->getByDate($date));
+        // $date = new \DateTime('1979/03/12', $dateTimeZoneJapan);
+        $date = new \DateTime('2019/5/1', $dateTimeZoneJapan);
+        // $date = new \DateTime('2019/5/1', $dateTimeZoneJapan);
+
+        var_dump($japaneseCalender->get($date));
+        // assertFalse();
     }
 }
