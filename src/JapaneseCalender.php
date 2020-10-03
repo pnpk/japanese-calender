@@ -1,8 +1,8 @@
 <?php
 namespace pnpk\JapaneseCalender;
+require "./vendor/larapack/dd/src/helper.php";
 
 use Carbon\CarbonImmutable;
-use DateTime;
 
 class JapaneseCalender
 {
@@ -10,43 +10,44 @@ class JapaneseCalender
         [
             'name' => '令和',
             'start_at' => '2019-05-01',
-            'end_at' => null,
         ],
         [
             'name' => '平成',
             'start_at' => '1989-01-08',
-            'end_at' => '2019-04-30',
         ],
         [
             'name' => '昭和',
             'start_at' => '1926-12-25',
-            'end_at' => '1989-01-07',
         ],
         [
             'name' => '大正',
             'start_at' => '1912-07-30',
-            'end_at' => '1926-12-24',
         ],
         [
             'name' => '明治',
             'start_at' => '1868-09-08',
-            'end_at' => '1912-07-29',
         ]
     ];
 
-    public function get(DateTime $dateTime)
+    public function get(string $dateTime)
     {
-        $date = $dateTime->format('Y-m-d');
-        // var_dump($date);
+        $targetAt = CarbonImmutable::parse($dateTime);
+
         foreach (self::ERAS as $era) {
-            $diff = date_diff(date_create($era['start_at']), date_create($date));
-            if ($diff->invert === 0) {
-                var_dump(date_create($era['start_at']));
-                var_dump(date_create($date));
-                var_dump($diff);
-                return $era;
+            $startAt = CarbonImmutable::parse($era['start_at']);
+
+            if ($targetAt->greaterThanOrEqualTo($startAt)) {
+                $year = $targetAt->year - $startAt->year + 1 === 1 ? $era['name'] . '元年' : $era['name'] . ($targetAt->year - $startAt->year + 1) . '年';
+                $month = $targetAt->month . '月';
+                $day = $targetAt->day . '日';
+                return [
+                    'date' => $year . $month . $day,
+                    'year' => $year,
+                    'month' => $month,
+                    'day' => $day,
+                ];
             }
         }
-        // return false;
+        throw new \OutOfRangeException('明治以前は取得出来ません。');
     }
 }
