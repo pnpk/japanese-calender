@@ -3,10 +3,10 @@ namespace pnpk\JapaneseCalender;
 
 use DateTime;
 
-class Era
+class JapaneseCalender
 {
     public function get(DateTime $date)
     {
-        return true;
+        return false;
     }
 }

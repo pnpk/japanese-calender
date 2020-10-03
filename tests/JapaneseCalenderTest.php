@@ -1,17 +1,21 @@
 <?php
 namespace tests;
 
-use pnpk\JapaneseCalender\Era;
+use PHPUnit\Framework\TestCase;
+use pnpk\JapaneseCalender\JapaneseCalender;
+use Carbon\CarbonImmutable;
 
-class EraTest extends \PHPUnit\Framework\TestCase
+use function PHPUnit\Framework\assertFalse;
+
+class JapaneseCalenderTest extends TestCase
 {
     /**
-     *
      * @test
      */
     public function hoge()
     {
-        new Era();
-        assert(false);
+        $japaneseCalender = new JapaneseCalender();
+        $date = CarbonImmutable::now()->toDate();
+        assertFalse($japaneseCalender->get($date));
     }
 }
