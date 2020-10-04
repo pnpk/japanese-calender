@@ -14,9 +14,10 @@ $ composer require pnpk/japanese-calender
 $japaneseCalender = new JapaneseCalender();
 $ret = $japaneseCalender->get('1990-08-16');
 
-// ..^ array:4 [
+// ..^ array:5 [
 //   "date" => "令和2年8月16日"
-//   "year" => "令和2年"
+//   "era" => "令和"
+//   "year" => "2年"
 //   "month" => "8月"
 //   "day" => "16日"
 // ]
