@@ -1,8 +1,6 @@
 <?php
 namespace tests;
 
-require "./vendor/larapack/dd/src/helper.php";
-
 use PHPUnit\Framework\TestCase;
 use pnpk\JapaneseCalender\JapaneseCalender;
 use function PHPUnit\Framework\assertEquals;
