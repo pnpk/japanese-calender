@@ -11,7 +11,7 @@ $ composer require pnpk/japanese-calender
 ## usage
 
 ```php
-$japaneseCalender = new JapaneseCalender();
 $date = new DateTime('2020-08-16');
+$japaneseCalender = new JapaneseCalender();
 $japaneseCalender->date($date); // "令和2年8月16日"
 ```
