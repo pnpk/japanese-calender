@@ -8,7 +8,7 @@
             "name": "pnpk"
         }
     ],
-    "minimum-stability": "dev",
+    "minimum-stability": "stable",
     "prefer-stable": true,
     "require": {
         "nesbot/carbon": "^2.40"
