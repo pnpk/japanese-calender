@@ -2,6 +2,7 @@
 namespace pnpk\JapaneseCalender;
 
 use Carbon\CarbonImmutable;
+use DateTime;
 
 class JapaneseCalender
 {
@@ -28,7 +29,7 @@ class JapaneseCalender
         ]
     ];
 
-    public function date(string $dateTime): string
+    public function date(DateTime $dateTime): string
     {
         $targetAt = CarbonImmutable::parse($dateTime);
 
