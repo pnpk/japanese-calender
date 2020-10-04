@@ -1,6 +1,5 @@
 <?php
 namespace pnpk\JapaneseCalender;
-require "./vendor/larapack/dd/src/helper.php";
 
 use Carbon\CarbonImmutable;
 
