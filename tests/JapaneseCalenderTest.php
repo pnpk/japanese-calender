@@ -18,7 +18,7 @@ class JapaneseCalenderTest extends TestCase
         $japaneseCalender = new JapaneseCalender();
         $date = new DateTime('2020-08-16');
         $ret = $japaneseCalender->date($date);
-        assertEquals($ret, '令和2年8月16日');
+        assertEquals($ret['date'], '令和2年8月16日');
     }
 
     /**
@@ -29,7 +29,7 @@ class JapaneseCalenderTest extends TestCase
         $japaneseCalender = new JapaneseCalender();
         $date = new DateTime('1990-08-16');
         $ret = $japaneseCalender->date($date);
-        assertEquals($ret, '平成2年8月16日');
+        assertEquals($ret['date'], '平成2年8月16日');
     }
 
     /**
@@ -40,7 +40,7 @@ class JapaneseCalenderTest extends TestCase
         $japaneseCalender = new JapaneseCalender();
         $date = new DateTime('1950-08-16');
         $ret = $japaneseCalender->date($date);
-        assertEquals($ret, '昭和25年8月16日');
+        assertEquals($ret['date'], '昭和25年8月16日');
     }
 
     /**
@@ -51,7 +51,7 @@ class JapaneseCalenderTest extends TestCase
         $japaneseCalender = new JapaneseCalender();
         $date = new DateTime('1915-08-16');
         $ret = $japaneseCalender->date($date);
-        assertEquals($ret, '大正4年8月16日');
+        assertEquals($ret['date'], '大正4年8月16日');
     }
 
     /**
@@ -62,7 +62,7 @@ class JapaneseCalenderTest extends TestCase
         $japaneseCalender = new JapaneseCalender();
         $date = new DateTime('1869-08-16');
         $ret = $japaneseCalender->date($date);
-        assertEquals($ret, '明治2年8月16日');
+        assertEquals($ret['date'], '明治2年8月16日');
     }
 
     /**
@@ -73,7 +73,7 @@ class JapaneseCalenderTest extends TestCase
         $japaneseCalender = new JapaneseCalender();
         $date = new DateTime('2019-08-16');
         $ret = $japaneseCalender->date($date);
-        assertEquals($ret, '令和元年8月16日');
+        assertEquals($ret['date'], '令和元年8月16日');
     }
 
     /**

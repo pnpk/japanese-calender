@@ -29,7 +29,7 @@ class JapaneseCalender
         ]
     ];
 
-    public function date(DateTime $dateTime): string
+    public function date(DateTime $dateTime): array
     {
         $targetAt = CarbonImmutable::parse($dateTime);
 
@@ -42,7 +42,13 @@ class JapaneseCalender
                 $month = $targetAt->month . '月';
                 $day = $targetAt->day . '日';
 
-                return $era . $year . $month . $day;
+                return [
+                    'date' => $era . $year . $month . $day,
+                    'era' => $era,
+                    'year' => $year,
+                    'month' => $month,
+                    'day' => $day,
+                ];
             }
         }
         throw new \OutOfRangeException('明治以前は取得出来ません。');
