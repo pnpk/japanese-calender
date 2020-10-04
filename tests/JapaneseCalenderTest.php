@@ -16,8 +16,8 @@ class JapaneseCalenderTest extends TestCase
     public function 令和の年号が取得できる()
     {
         $japaneseCalender = new JapaneseCalender();
-        $ret = $japaneseCalender->get('2020-08-16');
-        assertEquals($ret['date'], '令和2年8月16日');
+        $ret = $japaneseCalender->date('2020-08-16');
+        assertEquals($ret, '令和2年8月16日');
     }
 
     /**
@@ -26,8 +26,8 @@ class JapaneseCalenderTest extends TestCase
     public function 平成の年号が取得できる()
     {
         $japaneseCalender = new JapaneseCalender();
-        $ret = $japaneseCalender->get('1990-08-16');
-        assertEquals($ret['date'], '平成2年8月16日');
+        $ret = $japaneseCalender->date('1990-08-16');
+        assertEquals($ret, '平成2年8月16日');
     }
 
     /**
@@ -36,8 +36,8 @@ class JapaneseCalenderTest extends TestCase
     public function 昭和の年号が取得できる()
     {
         $japaneseCalender = new JapaneseCalender();
-        $ret = $japaneseCalender->get('1950-08-16');
-        assertEquals($ret['date'], '昭和25年8月16日');
+        $ret = $japaneseCalender->date('1950-08-16');
+        assertEquals($ret, '昭和25年8月16日');
     }
 
     /**
@@ -46,8 +46,8 @@ class JapaneseCalenderTest extends TestCase
     public function 大正の年号が取得できる()
     {
         $japaneseCalender = new JapaneseCalender();
-        $ret = $japaneseCalender->get('1915-08-16');
-        assertEquals($ret['date'], '大正4年8月16日');
+        $ret = $japaneseCalender->date('1915-08-16');
+        assertEquals($ret, '大正4年8月16日');
     }
 
     /**
@@ -56,8 +56,8 @@ class JapaneseCalenderTest extends TestCase
     public function 明治の年号が取得できる()
     {
         $japaneseCalender = new JapaneseCalender();
-        $ret = $japaneseCalender->get('1869-08-16');
-        assertEquals($ret['date'], '明治2年8月16日');
+        $ret = $japaneseCalender->date('1869-08-16');
+        assertEquals($ret, '明治2年8月16日');
     }
 
     /**
@@ -66,8 +66,8 @@ class JapaneseCalenderTest extends TestCase
     public function 令和1年は令和元年で取得できる()
     {
         $japaneseCalender = new JapaneseCalender();
-        $ret = $japaneseCalender->get('2019-08-16');
-        assertEquals($ret['date'], '令和元年8月16日');
+        $ret = $japaneseCalender->date('2019-08-16');
+        assertEquals($ret, '令和元年8月16日');
     }
 
     /**
@@ -78,7 +78,7 @@ class JapaneseCalenderTest extends TestCase
         $this->expectException(\OutOfRangeException::class);
 
         $japaneseCalender = new JapaneseCalender();
-        $japaneseCalender->get('1800-08-16');
+        $japaneseCalender->date('1800-08-16');
     }
 
     /**
@@ -89,6 +89,6 @@ class JapaneseCalenderTest extends TestCase
         $this->expectException(InvalidFormatException::class);
 
         $japaneseCalender = new JapaneseCalender();
-        $japaneseCalender->get('test');
+        $japaneseCalender->date('test');
     }
 }
